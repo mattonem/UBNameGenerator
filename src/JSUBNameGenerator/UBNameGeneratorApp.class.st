@@ -1,6 +1,10 @@
 Class {
 	#name : #UBNameGeneratorApp,
 	#superclass : #PjFileBasedWebApp,
+	#instVars : [
+		'result',
+		'nameInput'
+	],
 	#category : #JSUBNameGenerator
 }
 
@@ -11,13 +15,38 @@ UBNameGeneratorApp class >> appClasses [
 ]
 
 { #category : #'initialize-release' }
+UBNameGeneratorApp >> generateName [
+
+	| generatedName |
+	generatedName := nameInput value
+		                 ifNotEmpty: [ 
+		                 UBNameGenerator generateNameStartingWith:
+			                 nameInput value first ]
+		                 ifEmpty: [ UBNameGenerator generateName ].
+	^ generatedName
+]
+
+{ #category : #'initialize-release' }
 UBNameGeneratorApp >> start [
 
-	| nameInput result |
+	| generateName |
 	super start.
 	nameInput := document getElementById: #start.
 	result := document getElementById: #result.
+	generateName := document getElementById: #generateName.
+	generateName addEventListener: #click block: [ 
+		| generatedName |
+		generatedName := self generateName.
+		self updateResult: generatedName ].
 	nameInput addEventListener: #change block: [ 
-		result innerHTML:
-			(UBNameGenerator generateNameStartingWith: nameInput value first) ]
+		| generatedName |
+		generatedName := self generateName.
+		self updateResult: generatedName ].
+	self updateResult: UBNameGenerator generateName
+]
+
+{ #category : #'initialize-release' }
+UBNameGeneratorApp >> updateResult: generatedName [
+
+	^ result innerHTML: generatedName
 ]
