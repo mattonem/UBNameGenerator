@@ -1,0 +1,2 @@
+UBNameGeneratorApp appFolder: UBNameGeneratorApp defaultAppFolder.
+UBNameGeneratorApp exportApp
