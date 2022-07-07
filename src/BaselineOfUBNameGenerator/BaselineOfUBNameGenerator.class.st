@@ -12,5 +12,5 @@ BaselineOfUBNameGenerator >> baseline: spec [
 		spec
 			baseline: 'PharoJS'
 			with: [ spec repository: 'github://PharoJS/PharoJS:pharo9' ].
-		spec package: #UBNameGenerator ]
+		spec package: #JSUBNameGenerator ]
 ]
