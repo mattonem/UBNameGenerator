@@ -9,8 +9,8 @@ SmalltalkCISpec {
   #postLoading : [
     'scripts/exportApp.st'
   ],
-  #testing : [
+  #testing : {
     #packages : [ 'JSUBNameGenerator-Tests' ],
     #failOnZeroTests : false
-  ]
+  }
 }
