@@ -36,5 +36,5 @@ jobs:
           # Artifact name
           name: index.*
           # A file, directory or wildcard pattern that describes what to upload
-          path: UBNameGenerator/HTML/JSUBNameGenerator/UBNameGeneratorApp/
+          path: HTML/JSUBNameGenerator/UBNameGeneratorApp/
           # The desired behavior if no files are found using the provided path.
