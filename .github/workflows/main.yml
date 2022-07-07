@@ -48,7 +48,7 @@ jobs:
           destination-username: mattonem
           destination-repository: mattonem.github.io
           destination_branch: main
-          destination-directory: ./ubuntuNameGenerator
+          destination_directory: ./ubuntuNameGenerator
           commit-username: maxmattone
           commit-email: mattonem@gmail.com
           commit-message: 'update ubuntu name generator'
