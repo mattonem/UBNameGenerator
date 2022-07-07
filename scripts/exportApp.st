@@ -1,2 +1,2 @@
-UBNameGeneratorApp appFolder: './HTML/JSUBNameGenerator/UBNameGeneratorApp' asFileLocatorOrReference
+UBNameGeneratorApp appFolder: './HTML/JSUBNameGenerator/UBNameGeneratorApp' asFileLocatorOrReference.
 UBNameGeneratorApp exportApp
