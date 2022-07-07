@@ -40,15 +40,14 @@ jobs:
           # The desired behavior if no files are found using the provided path.
           
       - name: Copy files to another repository
-        uses: nkoppel/push-files-to-another-repository@v1.1.1
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-files:  /HTML/JSUBNameGenerator/UBNameGeneratorApp/index.html /HTML/JSUBNameGenerator/UBNameGeneratorApp/index.js
-          destination-username: mattonem
-          destination-repository: mattonem.github.io
-          destination-branch: main
-          destination-directory: ./ubuntuNameGenerator
-          commit-username: maxmattone
-          commit-email: mattonem@gmail.com
+          source-directory:  /HTML/JSUBNameGenerator/UBNameGeneratorApp
+          destination-github-username: mattonem
+          destination-repository-name: mattonem.github.io
+          target-branch: main
+          target-directory: ./ubuntuNameGenerator
+          user-email: mattonem@gmail.com
           commit-message: 'update ubuntu name generator'
