@@ -40,23 +40,15 @@ jobs:
           # The desired behavior if no files are found using the provided path.
           
       - name: Copy files to another repository
-  # You may pin to the exact commit or the version.
-  # uses: nkoppel/push-files-to-another-repository@993c4b2dae204519735dd914c24dd6f1d2acd24d
         uses: nkoppel/push-files-to-another-repository@v1.1.1
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-    # The files/directories to copy to the destination repository. Can have multiple space-separated filenames and globbing.
           source-files:  HTML/JSUBNameGenerator/UBNameGeneratorApp/index.html HTML/JSUBNameGenerator/UBNameGeneratorApp/index.js
-    # Name of the destination username/organization
           destination-username: mattonem
-    # Name of the destination repository
           destination-repository: mattonem.github.io
-    # [Opitonal] Directory to copy files into in the destination repository
+          destination_branch: main
           destination-directory: ./ubuntuNameGenerator
-    # [Optional] Username for the commit. Defaults to the destination username
           commit-username: maxmattone
-    # Email for the commit
           commit-email: mattonem@gmail.com
-    # [Optional] commit message for the output repository. ORIGIN_COMMIT is replaced by the URL@commit in the origin repo
-          commit-message: 'update '
+          commit-message: 'update ubuntu name generator'
