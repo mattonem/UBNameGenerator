@@ -47,8 +47,8 @@ jobs:
           source-files:  HTML/JSUBNameGenerator/UBNameGeneratorApp/index.html HTML/JSUBNameGenerator/UBNameGeneratorApp/index.js
           destination-username: mattonem
           destination-repository: mattonem.github.io
-          destination_branch: main
-          destination_directory: ./ubuntuNameGenerator
+          destination-branch: main
+          destination-directory: ./ubuntuNameGenerator
           commit-username: maxmattone
           commit-email: mattonem@gmail.com
           commit-message: 'update ubuntu name generator'
