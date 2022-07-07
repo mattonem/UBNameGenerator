@@ -263,6 +263,11 @@ UBNameGenerator class >> animalsStartingWith: aLetter [
 ]
 
 { #category : #'as yet unclassified' }
+UBNameGenerator class >> generateName [
+	^ self generateNameStartingWith: ($a to: $z) atRandom
+]
+
+{ #category : #'as yet unclassified' }
 UBNameGenerator class >> generateNameStartingWith: aLetter [
 
 	^ (self adjectivesStartingWith: aLetter) atRandom , ' '
