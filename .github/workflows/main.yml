@@ -44,7 +44,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-files:  /HTML/JSUBNameGenerator/UBNameGeneratorApp/index.html HTML/JSUBNameGenerator/UBNameGeneratorApp/index.js
+          source-files:  /HTML/JSUBNameGenerator/UBNameGeneratorApp/index.html /HTML/JSUBNameGenerator/UBNameGeneratorApp/index.js
           destination-username: mattonem
           destination-repository: mattonem.github.io
           destination-branch: main
