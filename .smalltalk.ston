@@ -10,7 +10,7 @@ SmalltalkCISpec {
     'scripts/exportApp.st'
   ],
   #testing : [
-    #packages : [ 'JSUBNameGenerator' ],
+    #packages : [ 'JSUBNameGenerator-Tests' ],
     #failOnZeroTests : false
   ]
 }
