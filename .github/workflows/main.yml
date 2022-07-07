@@ -38,3 +38,15 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           path: HTML/JSUBNameGenerator/UBNameGeneratorApp/
           # The desired behavior if no files are found using the provided path.
+          
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'HTML/JSUBNameGenerator/UBNameGeneratorApp'
+          destination_repo: 'mattonem/mattonem.github.io'
+          destination_folder: 'ubuntuNameGenerator'
+          user_email: 'mattone.m@gmail.com'
+          user_name: 'max mattone'
+          commit_message: 'NameGenerator update'
