@@ -8,5 +8,8 @@ SmalltalkCISpec {
   ],
   #postLoading : [
     'scripts/exportApp.st'
+  ],
+  #testing : [
+    #failOnZeroTests : false
   ]
 }
