@@ -69,6 +69,12 @@ UBNameGeneratorApp class >> generateHtmlUsing: html [
 ]
 
 { #category : #description }
+UBNameGeneratorApp class >> title [
+	<pharoJsSkip>
+	^ 'Ubuntu release name generator'
+]
+
+{ #category : #description }
 UBNameGeneratorApp class >> updateHtmlRoot: root [
 
 	<pharoJsSkip>
