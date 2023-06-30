@@ -38,16 +38,25 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           path: HTML/JSUBNameGenerator/UBNameGeneratorApp/
           # The desired behavior if no files are found using the provided path.
-          
-      - name: Copy files to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v1.0.8
         with:
-          source-directory:  HTML/JSUBNameGenerator/UBNameGeneratorApp
-          destination-github-username: mattonem
-          destination-repository-name: mattonem.github.io
-          target-branch: main
-          target-directory: ./ubuntuNameGenerator
-          user-email: mattonem@gmail.com
-          commit-message: 'update ubuntu name generator'
+          # Path of the directory containing the static assets.
+          path: HTML/JSUBNameGenerator/UBNameGeneratorApp/
+          # Duration after which artifact will expire in days.
+          retention-days: 1 
+  deploy:
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
