@@ -1,17 +1,16 @@
 Class {
 	#name : #UBNameGeneratorApp,
 	#superclass : #PjFileBasedWebApp,
-	#instVars : [
-		'result',
-		'nameInput'
-	],
+	#traits : 'StaticComponentHolder',
+	#classTraits : 'StaticComponentHolder classTrait',
 	#category : #JSUBNameGenerator
 }
 
 { #category : #description }
 UBNameGeneratorApp class >> appClasses [
+
 	<pharoJsSkip>
-	^super appClasses, {UBNameGenerator} 
+	^ super appClasses , { UBNameGeneratorWidget }
 ]
 
 { #category : #description }
@@ -32,40 +31,7 @@ UBNameGeneratorApp class >> exporterClass [
 UBNameGeneratorApp class >> generateHtmlUsing: html [
 
 	<pharoJsSkip>
-	html div
-		class: 'container';
-		with: [ :cont | 
-			cont div
-				class: 'card';
-				with: [ :card | 
-					card div
-						class: 'card-header';
-						with: 'Ubuntu Name Generator'.
-					card div
-						class: 'card-body';
-						with: [ :cardBody | 
-							cardBody div
-								class: 'mb-3 row';
-								with: [ :form | 
-									form label
-										class: 'col-auto col-form-label';
-										for: 'start';
-										with: 'First letter:'.
-									form div
-										class: 'col-auto';
-										with: [ :buttonDiv | 
-											buttonDiv textInput
-												class: 'form-control';
-												maxLength: 1;
-												id: #start ].
-									form div
-										class: 'col-auto';
-										with: [ :inputDiv | 
-											inputDiv button
-												class: 'btn btn-primary mb-3';
-												id: #generateName;
-												with: 'Generate name' ].
-									form preformatted id: 'result' ] ] ] ]
+	UBNameGeneratorWidget for: self on: html named: #nameGenerator
 ]
 
 { #category : #description }
@@ -83,15 +49,10 @@ UBNameGeneratorApp class >> updateHtmlRoot: root [
 ]
 
 { #category : #'initialize-release' }
-UBNameGeneratorApp >> generateName [
+UBNameGeneratorApp >> initialize [
 
-	| generatedName |
-	generatedName := nameInput value
-		                 ifNotEmpty: [ 
-		                 UBNameGenerator generateNameStartingWith:
-			                 nameInput value first ]
-		                 ifEmpty: [ UBNameGenerator generateName ].
-	^ generatedName
+	super initialize.
+	self initializeComponentHolder  
 ]
 
 { #category : #'initialize-release' }
@@ -99,7 +60,7 @@ UBNameGeneratorApp >> start [
 
 	| generateName |
 	super start.
-	nameInput := document getElementById: #start.
+	"nameInput := document getElementById: #start.
 	result := document getElementById: #result.
 	generateName := document getElementById: #generateName.
 	generateName addEventListener: #click block: [ 
@@ -110,11 +71,5 @@ UBNameGeneratorApp >> start [
 		| generatedName |
 		generatedName := self generateName.
 		self updateResult: generatedName ].
-	self updateResult: UBNameGenerator generateName
-]
-
-{ #category : #'initialize-release' }
-UBNameGeneratorApp >> updateResult: generatedName [
-
-	^ result innerHTML: generatedName
+	self updateResult: UBNameGenerator generateName"
 ]
