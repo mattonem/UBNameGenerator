@@ -23,7 +23,7 @@ UBNameGeneratorWidget >> generateNameWithTextInput: nameInput [
 
 { #category : #rendering }
 UBNameGeneratorWidget >> getLocationHash [
-	^ self _getLocationHash allButFirst
+	^ (self _getLocationHash splitOn: '/') allButFirst
 ]
 
 { #category : #rendering }
@@ -79,10 +79,9 @@ UBNameGeneratorWidget >> start [
 	nameInput addEventListener: #change block: [ 
 		generatedName := self generateNameWithTextInput: nameInput.
 		result innerHTML: generatedName ].
-	 
-	self getLocationHash
-		at: 1
-		ifPresent: [ :value | (self getElementById: #start) value: value ].
+
+	(self getElementById: #start) value:
+		(self getLocationHash at: 1 ifAbsent: [ '' ]).
 	generatedName := self generateNameWithTextInput: nameInput.
 	result innerHTML: generatedName
 ]
