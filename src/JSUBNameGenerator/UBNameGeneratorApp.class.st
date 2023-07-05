@@ -57,19 +57,5 @@ UBNameGeneratorApp >> initialize [
 
 { #category : #'initialize-release' }
 UBNameGeneratorApp >> start [
-
-	| generateName |
 	super start.
-	"nameInput := document getElementById: #start.
-	result := document getElementById: #result.
-	generateName := document getElementById: #generateName.
-	generateName addEventListener: #click block: [ 
-		| generatedName |
-		generatedName := self generateName.
-		self updateResult: generatedName ].
-	nameInput addEventListener: #change block: [ 
-		| generatedName |
-		generatedName := self generateName.
-		self updateResult: generatedName ].
-	self updateResult: UBNameGenerator generateName"
 ]

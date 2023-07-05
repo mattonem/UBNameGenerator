@@ -5,6 +5,11 @@ Class {
 }
 
 { #category : #rendering }
+UBNameGeneratorWidget >> _getLocationHash [
+	<javascript:'return window.location.hash'>
+]
+
+{ #category : #rendering }
 UBNameGeneratorWidget >> generateNameWithTextInput: nameInput [
 
 	| generatedName |
@@ -14,6 +19,11 @@ UBNameGeneratorWidget >> generateNameWithTextInput: nameInput [
 			                 nameInput value first ]
 		                 ifEmpty: [ UBNameGenerator generateName ].
 	^ generatedName
+]
+
+{ #category : #rendering }
+UBNameGeneratorWidget >> getLocationHash [
+	^ self _getLocationHash allButFirst
 ]
 
 { #category : #rendering }
@@ -69,6 +79,10 @@ UBNameGeneratorWidget >> start [
 	nameInput addEventListener: #change block: [ 
 		generatedName := self generateNameWithTextInput: nameInput.
 		result innerHTML: generatedName ].
+	 
+	self getLocationHash
+		at: 1
+		ifPresent: [ :value | (self getElementById: #start) value: value ].
 	generatedName := self generateNameWithTextInput: nameInput.
 	result innerHTML: generatedName
 ]
