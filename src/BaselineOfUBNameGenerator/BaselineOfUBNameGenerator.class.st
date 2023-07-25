@@ -11,7 +11,7 @@ BaselineOfUBNameGenerator >> baseline: spec [
 	spec for: #common do: [ 
 		spec
 			baseline: 'PharoJS'
-			with: [ spec repository: 'github://PharoJS/PharoJS:pharo10' ].
+			with: [ spec repository: 'github://PharoJS/PharoJS' ].
 		spec
 			baseline: 'Camping'
 			with: [ spec repository: 'github://mattonem/WildCamping:master' ].
