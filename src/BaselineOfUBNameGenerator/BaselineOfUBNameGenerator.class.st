@@ -14,7 +14,7 @@ BaselineOfUBNameGenerator >> baseline: spec [
 			with: [ spec repository: 'github://PharoJS/PharoJS' ].
 		spec
 			baseline: 'Camping'
-			with: [ spec repository: 'github://mattonem/WildCamping:master' ].
+			with: [ spec repository: 'github://mattonem/WildCamping' ].
 		spec package: #JSUBNameGenerator.
 		spec package: #'JSUBNameGenerator-Tests' ]
 ]
