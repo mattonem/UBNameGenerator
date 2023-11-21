@@ -30,34 +30,34 @@ UBNameGeneratorWidget >> getLocationHash [
 UBNameGeneratorWidget >> renderHtmlOn: html [
 
 	html div
-		class: 'container';
-		with: [ :cont | 
+		class: 'containe ';
+		with: [ :cont |
 			cont div
 				class: 'card';
-				with: [ :card | 
+				with: [ :card |
 					card div
 						class: 'card-header';
 						with: 'Ubuntu Name Generator'.
 					card div
 						class: 'card-body';
-						with: [ :cardBody | 
+						with: [ :cardBody |
 							cardBody div
 								class: 'mb-3 row';
-								with: [ :form | 
+								with: [ :form |
 									form label
 										class: 'col-auto col-form-label';
 										for: 'start';
 										with: 'First letter:'.
 									form div
 										class: 'col-auto';
-										with: [ :buttonDiv | 
+										with: [ :buttonDiv |
 											buttonDiv textInput
 												class: 'form-control';
 												maxLength: 1;
 												id: #start ].
 									form div
 										class: 'col-auto';
-										with: [ :inputDiv | 
+										with: [ :inputDiv |
 											inputDiv button
 												class: 'btn btn-primary mb-3';
 												id: #generateName;
