@@ -30,7 +30,7 @@ UBNameGeneratorWidget >> getLocationHash [
 UBNameGeneratorWidget >> renderHtmlOn: html [
 
 	html div
-		class: 'containe ';
+		class: 'container';
 		with: [ :cont |
 			cont div
 				class: 'card';
