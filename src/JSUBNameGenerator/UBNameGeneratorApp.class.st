@@ -10,13 +10,6 @@ UBNameGeneratorApp class >> rootComponentClass [
 	^ UBNameGeneratorWidget
 ]
 
-{ #category : #accessing }
-UBNameGeneratorApp class >> staticComponentSerialized [
-
-	<jsLiteralGenerator>
-	^ component asPhxJsonString
-]
-
 { #category : #description }
 UBNameGeneratorApp class >> title [
 	<pharoJsSkip>
