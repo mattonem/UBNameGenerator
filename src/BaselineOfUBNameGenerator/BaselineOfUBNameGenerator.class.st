@@ -1,17 +1,18 @@
 Class {
-	#name : #BaselineOfUBNameGenerator,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfUBNameGenerator
+	#name : 'BaselineOfUBNameGenerator',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfUBNameGenerator',
+	#package : 'BaselineOfUBNameGenerator'
 }
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfUBNameGenerator >> baseline: spec [
 
 	<baseline>
 	spec for: #common do: [ 
 		spec
 			baseline: 'Camping'
-			with: [ spec repository: 'github://mattonem/WildCamping:serialization' ].
+			with: [ spec repository: 'github://mattonem/WildCamping:pharo12' ].
 		spec package: #JSUBNameGenerator.
 		spec package: #'JSUBNameGenerator-Tests' ]
 ]

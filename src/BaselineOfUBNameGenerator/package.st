@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfUBNameGenerator }
+Package { #name : 'BaselineOfUBNameGenerator' }
